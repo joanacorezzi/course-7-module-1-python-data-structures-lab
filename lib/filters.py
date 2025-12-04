@@ -1,10 +1,17 @@
-# This module contains functions for filtering student data.
 
-def filter_students_by_major(student_list, major):
-    """
-    Return a filtered list of students by major using a list comprehension.
-    The function should:
-    - Check if a student's major matches the given major (case insensitive).
-    - Return a new list containing only students that match.
-    """
-    pass
+from .student_data import students  # import the shared students list
+
+
+def filter_students_by_major(students_list, major):
+   # Return a list of students who have the given major
+
+    # Use a list comprehension to filter by major
+    return [student for student in students_list if student[2] == major]
+
+
+# Only runs if we execute this file directly
+if __name__ == "__main__":
+    cs_students = filter_students_by_major(students, "Computer Science")
+    print("Students with major 'Computer Science':")
+    for s in cs_students:
+        print(s)
